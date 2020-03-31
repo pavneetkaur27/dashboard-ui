@@ -5,9 +5,7 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import EditorContent from './EditorContent';
@@ -44,7 +42,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-end',
+  },
+
+  rightBody: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
@@ -117,17 +122,24 @@ export default function MainNavbar() {
           paper:"drawerPaper",
         }}
       >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-
+        <div className="nav-header-style" >
+         <img src={SidebarIcon}  aria-label="open drawer"
+              edge="start"
+              className={classes.menuButton} />
+          
         </div>
-        <Divider />
-
-        {/* SideBar Nodes */}
-        <SideBarNodes />
-
+        
+        <div className="sidebar-border">
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+            
+          </div>
+        
+          {/* SideBar Nodes */}
+          <SideBarNodes />
+        </div>
       </Drawer>
 
       {/* Right panel containing text content  */}
@@ -136,7 +148,7 @@ export default function MainNavbar() {
           [classes.contentShift]: open,
         })}
       >
-        <div className={classes.drawerHeader} />
+        <div className={classes.rightBody} />
 
         {/* content */}
         <EditorContent />
