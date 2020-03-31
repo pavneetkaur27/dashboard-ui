@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from "react-redux";
-import { Switch, Route,withRouter } from 'react-router-dom';
-import Cookies from 'universal-cookie';
 import MainNavbar from './MainNavbar';
-const cookies = new Cookies();
 
 class Dashboard extends Component {
   constructor(props){
@@ -12,32 +8,14 @@ class Dashboard extends Component {
      }
   }
 
-  componentWillMount(){
-    
-  }
-  
-  componentWillReceiveProps(nextProps){
-  }
-
   render(){
     return (
       <div className="main-body">
         <MainNavbar />
-        
-        sdsd
       </div>
     );
   }
 }
 
 
-const mapStateToProps = state => {
-  return {
-     
-  }
-}
-
-const mapDispatchToProps = {};
-
-
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Dashboard))
+export default (Dashboard);
