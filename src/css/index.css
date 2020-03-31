@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif!important;
 }
 html::-webkit-scrollbar {
 		width: 0px;
@@ -27,7 +27,7 @@ html::-webkit-scrollbar-thumb {
 	--light-black: rgba(33, 42, 57, 0.75) !important;
 	--red: #E94B35 !important;
 	--ff-SourceSansPro : 'Source Sans Pro', sans-serif !important;
-	--drawerwidth: 240px;
+	--drawerwidth: 340px;
 }
 
 .float-right{
@@ -92,6 +92,7 @@ html::-webkit-scrollbar-thumb {
 
 .main-body{
 	background-color: #ffffff;
+	font-family: 'Source Sans Pro', sans-serif!important;
 }
 
 .navbar-container{
@@ -102,6 +103,12 @@ html::-webkit-scrollbar-thumb {
 .navbar-container .MuiAppBar-colorPrimary{
 	color: var(--black);
 	background-color: white;
+}
+
+.navbar-container .MuiPaper-elevation4 {
+	/* box-shadow: none!important; */
+	box-shadow: 0 2px 8px 0 rgba(33, 42, 57, 0.25);
+  
 }
 
 .drawer {
@@ -118,4 +125,47 @@ html::-webkit-scrollbar-thumb {
 	align-items: 'center';
 	padding: 10px;
 	justify-content: 'flex-end';
+}
+
+
+/* Functionality */
+.invite-person-icon-style{
+	width: 32px;
+	height: 32px;
+}
+
+.invite-txt-style{
+	padding:0px 48px 0px 4px ;
+}
+
+.profile-pic-style{
+	width:40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.lrnr-menubar{
+    margin-top: 16px;
+}
+
+.lrnr-menubar .MuiPaper-elevation8{
+    box-shadow: 0 2px 6px 0 rgba(33, 42, 57, 0.25)!important;
+}
+
+.lrnr-menuitem{
+	padding:8px 80px 8px 16px!important;
+	color: #212A39;
+    font-size: 16px!important;
+	font-family: 'Source Sans Pro', sans-serif!important;
+	opacity: 0.75;
+	;
+}
+
+
+@media (min-width: 600px ) and (max-width : 1788px){
+ 
+    .lrnr-menubar .MuiList-padding{
+        padding : 0px!important;
+    }
 }
