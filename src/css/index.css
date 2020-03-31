@@ -100,6 +100,14 @@ html::-webkit-scrollbar-thumb {
 	min-height: 100vh;
 }
 
+.navbar-container .MuiToolbar-regular {
+	min-height: 80px!important;
+}
+
+.navbar-container .makeStyles-drawerHeader-5{
+	min-height: 32px!important;
+}
+
 .navbar-container .MuiAppBar-colorPrimary{
 	color: var(--black);
 	background-color: white;
@@ -107,8 +115,18 @@ html::-webkit-scrollbar-thumb {
 
 .navbar-container .MuiPaper-elevation4 {
 	/* box-shadow: none!important; */
-	box-shadow: 0 2px 8px 0 rgba(33, 42, 57, 0.25);
+	box-shadow: 0 2px 8px 0 rgba(141, 144, 150, 0.25);
   
+}
+
+.navbar-container .MuiDrawer-paperAnchorDockedLeft{
+	border: none!important;
+}
+
+.sidebar-border{
+	min-height: calc(100vh - 80px)!important;
+	background-color: rgba(210, 212, 216, 0.2);
+  	border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .drawer {
@@ -120,22 +138,24 @@ html::-webkit-scrollbar-thumb {
 	width: var(--drawerwidth);
 }
 
-.drawerHeader {
-	display: 'flex';
-	align-items: 'center';
-	padding: 10px;
-	justify-content: 'flex-end';
+.nav-header-style{
+	padding: 0px 24px; 
+	display: flex;
+	align-items: center;
+	min-height: 80px;
+	box-shadow: 0 2px 8px 0 rgba(141, 144, 150, 0.25);
 }
-
 
 /* Functionality */
 .invite-person-icon-style{
-	width: 32px;
-	height: 32px;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
 }
 
 .invite-txt-style{
 	padding:0px 48px 0px 4px ;
+
 }
 
 .profile-pic-style{
