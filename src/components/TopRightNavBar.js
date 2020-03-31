@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import {connect} from "react-redux";
-import { Switch, Route,withRouter } from 'react-router-dom';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Divider } from '@material-ui/core';
 import InvitePersonIcon from '../assests/lrnrinviteuser.svg';
 import ProfilePic from '../assests/profilepic.svg';
 
-class Dashboard extends Component {
+class TopRightNavBar extends Component {
   constructor(props){
     super(props);
     this.state = { 
@@ -71,14 +69,4 @@ class Dashboard extends Component {
   }
 }
 
-
-const mapStateToProps = state => {
-  return {
-     
-  }
-}
-
-const mapDispatchToProps = {};
-
-
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Dashboard))
+export default TopRightNavBar;
