@@ -21,8 +21,7 @@ class Dashboard extends Component {
 
   render(){
     return (
-      <div className="main-body">
-        <MainNavbar />
+      <div>
         
         sdsd
       </div>

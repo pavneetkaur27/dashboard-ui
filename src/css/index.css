@@ -1,0 +1,121 @@
+body {
+	margin: 0;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+html::-webkit-scrollbar {
+		width: 0px;
+		background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+		background: transparent;
+}
+*{
+	outline: none !important;
+}
+.no-select {
+	-webkit-touch-callout: none !important;
+		-webkit-user-select: none !important; 
+			-khtml-user-select: none !important;
+				-moz-user-select: none !important; 
+				-ms-user-select: none !important;
+						user-select: none !important;
+}
+:root {
+	--background: rgba(207, 224, 235, 0.5) !important;
+	--black: #212A39 !important;
+	--blue : #255CA8 !important;
+	--light-black: rgba(33, 42, 57, 0.75) !important;
+	--red: #E94B35 !important;
+	--ff-SourceSansPro : 'Source Sans Pro', sans-serif !important;
+	--drawerwidth: 240px;
+}
+
+.float-right{
+	float: right !important;
+}
+.float-left{
+	float: left !important;
+}
+.dis-inline-block{
+	display: inline-block !important;
+}
+.dis-flex{
+	display: flex !important;
+}
+.dis-none{
+	display: none !important;
+}
+.width-50{
+	width: 50% !important;
+}
+.width-100{
+	width: 100% !important;
+}
+.dis-block{
+	display: block !important;
+}
+.text-align-left{
+	text-align: left !important;
+}
+.text-align-right{
+	text-align: right !important;
+}
+.text-align-center{
+	text-align: center !important;
+}
+.black-txt{
+	color: var(--black) !important;
+}
+.gray-txt{
+	color: var(--light-black) !important;
+}
+.blue-txt{
+	color: var(--blue) !important;
+}
+
+.center-all{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+
+.no-padding{
+  padding: 0 !important;
+}
+
+.no-margin{
+  margin: 0 !important;
+}
+
+
+/* Main Body */
+
+.main-body{
+	background-color: #ffffff;
+}
+
+.navbar-container{
+	display: flex;
+	min-height: 100vh;
+}
+
+.navbar-container .MuiAppBar-colorPrimary{
+	color: var(--black);
+	background-color: white;
+}
+
+.drawer {
+	width: var(--drawerwidth);
+	flex-shrink: 0;
+}
+
+.drawerPaper {
+	width: var(--drawerwidth);
+}
+
+.drawerHeader {
+	display: 'flex';
+	align-items: 'center';
+	padding: 10px;
+	justify-content: 'flex-end';
+}

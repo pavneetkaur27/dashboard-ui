@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
-import configStore from "./store/storeConfig";
+import store from "./store/storeConfig";
 import MainPage from './components/Dashboard';
 import { Route, Redirect, BrowserRouter } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
@@ -9,7 +9,6 @@ import * as serviceWorker from './serviceWorker';
 // include css
 import './css/index.css';
 
-var store = configStore();
 
 
 ReactDOM.render(
