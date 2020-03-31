@@ -1,29 +1,71 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { Switch, Route,withRouter } from 'react-router-dom';
-import Cookies from 'universal-cookie';
-import MainNavbar from './MainNavbar';
-const cookies = new Cookies();
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import { Divider } from '@material-ui/core';
+import InvitePersonIcon from '../assests/lrnrinviteuser.svg';
+import ProfilePic from '../assests/profilepic.svg';
 
 class Dashboard extends Component {
   constructor(props){
     super(props);
-    this.state = {
-     }
+    this.state = { 
+      openMenuBar : null
+    }
   }
 
-  componentWillMount(){
-    
+
+  toggleMenubar(event){
+    this.setState({
+      openMenuBar: event.currentTarget,
+    })
   }
-  
-  componentWillReceiveProps(nextProps){
+
+  handleClose = () =>{
+    this.setState({
+        openMenuBar : null
+    })
   }
 
   render(){
     return (
-      <div>
-        
-        sdsd
+      <div  className="center-all float-right">
+        {/* Point no 11 covered */}
+        <div>
+          <img className="invite-person-icon-style" src={InvitePersonIcon} />
+          <span className="invite-txt-style">INVITE TEAM MEMBER</span>
+        </div>
+
+        {/* Point no 12 covered */}
+        <div>
+          <div className="org-dashheader-logo-style">
+            <img className="profile-pic-style"   onClick={(e) => this.toggleMenubar(e)} src={ProfilePic}></img>  
+          </div>
+          <Menu
+              id = 'dashboard-menu'
+              anchorEl={this.state.openMenuBar}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              // elevation={0}
+              getContentAnchorEl={null}
+              transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+          }}
+              open={Boolean(this.state.openMenuBar)}
+              onClose={this.handleClose}
+              className="lrnr-menubar"
+          >
+              <MenuItem  className="lrnr-menuitem" >Profile</MenuItem>
+              <MenuItem  className="lrnr-menuitem">Company Profile</MenuItem>
+              <Divider/>
+              <MenuItem  className="lrnr-menuitem">Logout</MenuItem>
+          </Menu>  
+        </div>
+
       </div>
     );
   }
