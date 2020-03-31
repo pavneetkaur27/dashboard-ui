@@ -13,8 +13,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import EditorContent from './EditorContent';
 import SideBarNodes from './SideBarNodes';
 import TopRightNavBar from './TopRightNavBar';
+import SidebarIcon from '../assests/sidebaricon.svg';
 
-const drawerWidth = 240;
+const drawerWidth = 340;
 
 const useStyles = makeStyles((theme) => ({
  appBar: {
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   menuButton: {
+    cursor:'pointer',
     marginRight: theme.spacing(2),
   },
   hide: {
@@ -87,19 +89,20 @@ export default function MainNavbar() {
         })}
       >
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-  
+        <div className="row no-padding no-margin width-100 center-all" >
+
+          {/* Point no 1 covered */}
+          <div className="col-sm-2 no-padding no-margin"> 
+            <img src={SidebarIcon}  aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, open && classes.hide)} />
+          </div>
           {/* Dropdown content */}
-          <TopRightNavBar />
-  
+          <div className="col-sm-10 no-padding no-margin">
+            <TopRightNavBar />
+          </div>
+        </div>
         </Toolbar>
       </AppBar>
   
@@ -118,6 +121,7 @@ export default function MainNavbar() {
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
+
         </div>
         <Divider />
 
