@@ -16,15 +16,7 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Route exact path="/" component={MainPage} />
-            
-            {/* <Route exact path="/pendingpage" component={PendingPage} />
-            <Route path="/admin" component={AdminHome} />
-
-            <Route path="/candidate" component={CandidateHome} />
-            <Route path="/org" component={OrganisationHome} />
-
-            <Route exact path="/change_password" component={ChangePassword} />
-            <Route exact path="/change_password/:jtkn" component={ChangePassword}/> */}
+      
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')
