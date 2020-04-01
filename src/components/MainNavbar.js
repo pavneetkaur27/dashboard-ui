@@ -5,13 +5,11 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import EditorContent from './EditorContent';
 import SideBarNodes from './SideBarNodes';
 import TopRightNavBar from './TopRightNavBar';
 import SidebarIcon from '../assests/sidebaricon.svg';
+import ItemSwitchComponent from './ItemSwitchComponent';
 
 const drawerWidth = 340;
 
@@ -122,24 +120,14 @@ export default function MainNavbar() {
           paper:"drawerPaper",
         }}
       >
-        <div className="nav-header-style" >
-         <img src={SidebarIcon}  aria-label="open drawer"
-              edge="start"
-              className={classes.menuButton} />
-          
-        </div>
-        
-        <div className="sidebar-border">
-          <div className={classes.drawerHeader}>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-            </IconButton>
-            
-          </div>
-        
+         {/* Component to switch between different Items */}
+          <ItemSwitchComponent />       
+
           {/* SideBar Nodes */}
-          <SideBarNodes />
-        </div>
+          <div className="sidebar-border">
+            <SideBarNodes handleDrawerClose={handleDrawerClose} />
+          </div>
+
       </Drawer>
 
       {/* Right panel containing text content  */}
@@ -148,11 +136,10 @@ export default function MainNavbar() {
           [classes.contentShift]: open,
         })}
       >
-        <div className={classes.rightBody} />
-
+          <div className={classes.rightBody} />
         {/* content */}
-        <EditorContent />
-      
+          <EditorContent />
+        
       </main>
     </div>
   );
