@@ -76,12 +76,12 @@ class AddItemModal extends Component {
                     <DialogContent style={{padding:'0px 40px 40px 40px'}} className="modal-dialog-content">
                         <RadioGroup aria-label="position" name="position" value={this.state.active} onChange={this.handleRadioChange}>
                             <div >
-                                <FormControlLabel className="form-control modal-radio-control" style={{padding:0,marginTop:32}} value='1' control={<Radio />} label="Add Contanier Node" />
+                                <FormControlLabel className="form-control modal-radio-control" style={{padding:0,marginTop:32}} value='1' control={<Radio />} label="Add Course Node" />
                                 {this.state.active == 1 ? 
                                     <div className="row no-margin no-padding">
                                         <div className="col-sm-1 no-padding"></div>
                                         <div className="col-sm-11 no-padding">
-                                            <input type="text" className="modal-input-field"  placeholder="Add Container node value" value={this.state.nodeval} onChange={this.handleNodeTextChange} />
+                                            <input type="text" className="modal-input-field"  placeholder="Add Course node value" value={this.state.nodeval} onChange={this.handleNodeTextChange} />
                                         </div>
                                     </div>
                                 : null}
