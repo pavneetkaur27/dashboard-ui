@@ -10,6 +10,7 @@ import SideBarNodes from './SideBarNodes';
 import TopRightNavBar from './TopRightNavBar';
 import SidebarIcon from '../assests/sidebaricon.svg';
 import ItemSwitchComponent from './ItemSwitchComponent';
+import RightPanel from './RightPanel';
 
 const drawerWidth = 340;
 
@@ -138,7 +139,7 @@ export default function MainNavbar() {
       >
           <div className={classes.rightBody} />
         {/* content */}
-          <EditorContent />
+          <RightPanel />
         
       </main>
     </div>
