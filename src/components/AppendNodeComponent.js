@@ -23,7 +23,7 @@ class AppendNodeComponent extends Component {
               </div>
               : 
               <div style={{display:'flex',alignItems:'center'}} >
-                <img onClick={() => this.props.fetchItem(false,this.props.node._id)} className="container-nodes-dropdown-arrow"   src={DropDownIcon}/>
+                <img onClick={() => this.props.fetchItem(this.props.node)} className="container-nodes-dropdown-arrow"   src={DropDownIcon}/>
                 <div className="text-ellipsis">{this.props.node.nodename}</div>
                 <Tooltip title="Add Item" ><img onClick={() => this.props.addItem(false,this.props.node._id)} style={{height:16,marginLeft:'auto'}} className= " siderbar-nodes-icon-style" src={AddIcon} /></Tooltip>
               </div> 
@@ -32,8 +32,8 @@ class AppendNodeComponent extends Component {
           {
             this.props.list ?  this.props.list.map((node,index) => {
                 var current_parent_id = this.props.node._id;
-                if((node.parent_id != current_parent_id )){
-                   return (null)
+                if((node.parent_id != current_parent_id )  ){
+                   return (<div></div>)
                 }else{ 
                     return(
                       <AppendNodeComponent key={node._id}  parent_id={node.parent_id} node={node} list={this.props.list} fetchItem={this.props.fetchItem} addItem={this.props.addItem}>
