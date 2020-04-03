@@ -15,22 +15,25 @@ export const addNodeValue = (data) => dispatch => {
         if(data.is_parent){
             var parent_node = {
                 _id         : contaniernodes.length+ 1,
-                parent_id    : null,
+                parent_id   : null,
                 nodename    : data.nodeval,
                 is_leaf     : data.is_leaf ,
+                is_open     : true
             }
         }else{
             var parent_id = data.parent_id;
             var parent_node = {
                 _id         : contaniernodes.length+ 1,
-                parent_id    : parent_id,
+                parent_id   : parent_id,
                 nodename    : data.nodeval,
                 is_leaf     : data.is_leaf ,
+                is_open     : true
             }
         }
         contaniernodes.push(parent_node);
         localStorage.setItem('nodesArr', JSON.stringify(contaniernodes));
-        
+        contaniernodes = contaniernodes.filter(obj=> obj.is_open === true);
+   
         stopLoader(dispatch);
         dispatch({
             type: "ADD_CONTANIER_NODES",
@@ -47,12 +50,19 @@ export const getContanierNodes = () => dispatch =>{
     startLoader(dispatch,1);
     var contaniernodes = [];
     contaniernodes = JSON.parse(localStorage.getItem('nodesArr')) || [];
-        
+    for(var i = 0; i< contaniernodes.length ;i++){
+        if(contaniernodes[i].parent_id != null){
+            contaniernodes[i].is_open = false;
+        }
+    };
+    var opennodes = contaniernodes.filter(obj=> (obj.is_open === true && obj.parent_id ==  null));
+   
+    localStorage.setItem('nodesArr', JSON.stringify(contaniernodes));
     stopLoader(dispatch);
     return dispatch({
         type: "ADD_CONTANIER_NODES",
         payload: {
-            contaniernodes : contaniernodes
+            contaniernodes : opennodes
         }
     });
 }
@@ -62,13 +72,24 @@ export const getChildNodes = (data) => dispatch =>{
     startLoader(dispatch,1);
     var contaniernodes = [];
     contaniernodes = JSON.parse(localStorage.getItem('nodesArr')) || [];
-  
-    var childnodes = contaniernodes.filter(obj=>obj.parent_id === data.parent_id);
+    console.log(data);
+    for(var i = 0; i< contaniernodes.length ;i++){
+        if(contaniernodes[i].parent_id ==  data.parent_id){
+            contaniernodes[i].is_open = data.open_state;
+        }
+    };
+
+    localStorage.setItem('nodesArr', JSON.stringify(contaniernodes));
+    console.log(contaniernodes);
+    contaniernodes = contaniernodes.filter(obj=> obj.is_open === true);
     
-    return new Promise(function(resolve, reject) {
-        stopLoader(dispatch);
-        resolve(childnodes);
-    })
+    stopLoader(dispatch);
+    return dispatch({
+        type: "ADD_CONTANIER_NODES",
+        payload: {
+            contaniernodes : contaniernodes
+        }
+    });
 }
 
 export const getEditorContent = () => dispatch =>{
@@ -101,4 +122,28 @@ export const getEditorContent = () => dispatch =>{
             editorcontent : editorcontent
         }
     });  
+}
+
+export const updateEditorContent = (data) => dispatch =>{
+    startLoader(dispatch,1);
+    var editorcontent = [];
+    editorcontent = JSON.parse(localStorage.getItem('editordata')) || [];
+    
+    var update_property = data.isSectionHeading ? 'topic_name' : 'topic_content'
+    // console.log(editorcontent[data.contentIndex][update_property]);
+    // console.log(data.content);
+    if(editorcontent[data.contentIndex][update_property] != data.content){
+        editorcontent[data.contentIndex][update_property] = data.content;
+        localStorage.setItem('editordata', JSON.stringify(editorcontent));    
+        stopLoader(dispatch);
+        return dispatch({
+            type: "FETCH_EDITOR_CONTENT",
+            payload: {
+                editorcontent : editorcontent
+            }
+        });  
+    }else{
+        stopLoader(dispatch);
+        return ;
+    }
 }
