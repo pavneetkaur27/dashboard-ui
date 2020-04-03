@@ -20,6 +20,7 @@ class SideBarNodes extends Component {
   }
 
   componentDidMount(){
+    console.log("sss")
     this.props.getContanierNodes();
   }
 
@@ -42,12 +43,18 @@ class SideBarNodes extends Component {
   }
 
   fetchItem = (currentnode) =>{
-    this.props.getContanierNodes();
+    // this.props.getContanierNodes();
+    var data = {
+      parent_id   : currentnode._id,
+      open_state  : true  
+    }
+    this.props.getChildNodes(data);
   }
 
  
   render(){
     // console.log(this.props.lrnrpanel);
+    // Point no 5 , 6 , 7 covered
     return (
       <div className="sidebar-nodes">
         {this.state.open_add_item_modal ? <AddItemModal open={this.state.open_add_item_modal} handleModalToggle={this.handleModalToggle} nodedata= {this.state.nodedata} />: null }
