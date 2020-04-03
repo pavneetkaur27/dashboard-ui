@@ -12,7 +12,7 @@ class AppendNodeComponent extends Component {
   }
 
   render(){
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className={["sidebar-nodes", this.props.parent_id == null ? ' ': 'padding-left'].join(' ')} key={this.props.node._id} > 
         <div >
@@ -33,7 +33,7 @@ class AppendNodeComponent extends Component {
             this.props.list ?  this.props.list.map((node,index) => {
                 var current_parent_id = this.props.node._id;
                 if((node.parent_id != current_parent_id )  ){
-                   return (<div></div>)
+                   return (null)
                 }else{ 
                     return(
                       <AppendNodeComponent key={node._id}  parent_id={node.parent_id} node={node} list={this.props.list} fetchItem={this.props.fetchItem} addItem={this.props.addItem}>
