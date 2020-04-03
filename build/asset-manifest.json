@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4cbb5c14.chunk.css",
+    "main.js": "/static/js/main.8ac95cf7.chunk.js",
+    "main.js.map": "/static/js/main.8ac95cf7.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.ee0c625c.chunk.js": "/static/js/2.ee0c625c.chunk.js",
+    "static/js/2.ee0c625c.chunk.js.map": "/static/js/2.ee0c625c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.1fa787f14caf8112c42e8e1efea09018.js": "/precache-manifest.1fa787f14caf8112c42e8e1efea09018.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.4cbb5c14.chunk.css.map": "/static/css/main.4cbb5c14.chunk.css.map",
+    "static/media/dropdown-arrow.svg": "/static/media/dropdown-arrow.036a4c2e.svg",
+    "static/media/index.css": "/static/media/loader.707852f1.svg",
+    "static/media/lrnrinviteuser.svg": "/static/media/lrnrinviteuser.e3817ac9.svg",
+    "static/media/profilepic.svg": "/static/media/profilepic.f84ed13b.svg",
+    "static/media/sidebaricon.svg": "/static/media/sidebaricon.89189811.svg"
+  }
+}

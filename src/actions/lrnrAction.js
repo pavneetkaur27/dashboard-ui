@@ -7,7 +7,7 @@ const stopLoader = (dispatch)=>{
 }
 
 export const addNodeValue = (data) => dispatch => {
-    console.log(data);
+    // console.log(data);
     return new Promise(function(resolve, reject) {
         startLoader(dispatch,1);
         var contaniernodes = [];
@@ -72,7 +72,7 @@ export const getChildNodes = (data) => dispatch =>{
     startLoader(dispatch,1);
     var contaniernodes = [];
     contaniernodes = JSON.parse(localStorage.getItem('nodesArr')) || [];
-    console.log(data);
+    // console.log(data);
     for(var i = 0; i< contaniernodes.length ;i++){
         if(contaniernodes[i].parent_id ==  data.parent_id){
             contaniernodes[i].is_open = data.open_state;
@@ -80,7 +80,7 @@ export const getChildNodes = (data) => dispatch =>{
     };
 
     localStorage.setItem('nodesArr', JSON.stringify(contaniernodes));
-    console.log(contaniernodes);
+    // console.log(contaniernodes);
     contaniernodes = contaniernodes.filter(obj=> obj.is_open === true);
     
     stopLoader(dispatch);
