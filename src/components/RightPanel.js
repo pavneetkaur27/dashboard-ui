@@ -16,7 +16,8 @@ class RightPanel extends Component {
   }
 
   render() {
-    console.log(this.props.lrnrpanel.editorcontent);
+    // console.log(this.props.lrnrpanel.editorcontent);
+    // Point  no  8 and 9 covered
     return (
       <div className="editor-content">
         <div className="editor-content-heading">WYSIWYG Editor</div>
@@ -25,10 +26,10 @@ class RightPanel extends Component {
         this.props.lrnrpanel.editorcontent.map((content,index) => (
             <div className="editor-content-container" key={index}>
                 <div className="font-20">
-                    <EditorContent isSectionHeading={true} contentvalue={content.topic_name}/>
+                    <EditorContent contentIndex={index} isSectionHeading={true} contentvalue={content.topic_name}/>   
                 </div>
                 <div  className="font-16">
-                    <EditorContent isSectionHeading={false} contentvalue={content.topic_content}/>
+                    <EditorContent  contentIndex={index} isSectionHeading={false} contentvalue={content.topic_content}/>
                 </div>
             </div>
          ))}

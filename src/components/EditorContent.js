@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { withRouter } from 'react-router-dom';
-import {getEditorContent}  from '../actions/lrnrAction';
+import {updateEditorContent}  from '../actions/lrnrAction';
 import {
   Editor,
   createEditorState,
   BLOCK_BUTTONS
 } from 'medium-draft';
 import mediumDraftExporter from 'medium-draft/lib/exporter';
+import mediumDraftImporter from 'medium-draft/lib/importer';
+import { convertToRaw } from 'draft-js';
 
 const blockButtons = [{
   label: 'H1',
@@ -42,16 +44,20 @@ const toolbarConfigForTopicContent = {
 class EditorContent extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      editorState: createEditorState(this.props.contentvalue), 
+      editorState: createEditorState(convertToRaw(mediumDraftImporter(this.props.contentvalue)))
     };
 
 
     this.onChange = (editorState) => {
-      // var renderedHTML = mediumDraftExporter(editorState.getCurrentContent());
-    // console.log(renderedHTML);
+      var renderedHTML = mediumDraftExporter(editorState.getCurrentContent());
       this.setState({ editorState });
+      
+      this.props.updateEditorContent({
+        content : renderedHTML,
+        isSectionHeading  : this.props.isSectionHeading,
+        contentIndex  : this.props.contentIndex
+      })
     };
 
     this.refsEditor = React.createRef();
@@ -62,15 +68,11 @@ class EditorContent extends Component {
     this.refsEditor.current.focus();
   }
 
-  componentWillReceiveProps(props){
-    this.setState({
-      editorState: createEditorState(props.contentvalue), 
-    });
-  }
 
   render() {
     const { editorState } = this.state;
-    // console.log(this.props);
+    // console.log(this.props.contentvalue);
+    // console.log(editorState);
     return (
       <div>
           <Editor
@@ -93,6 +95,6 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = {getEditorContent};
+const mapDispatchToProps = {updateEditorContent};
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(EditorContent))
