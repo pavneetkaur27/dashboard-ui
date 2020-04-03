@@ -342,6 +342,12 @@ html::-webkit-scrollbar-thumb {
 .container-active-node{
 	background-color: #E94B35;
 }
+
+
+.MuiDialog-paperWidthSm{
+	width: 500px;	
+}
+
 /* Editor content */
 
 .editor-content{
@@ -370,7 +376,6 @@ html::-webkit-scrollbar-thumb {
 .editor-content .md-RichEditor-editor .public-DraftEditor-content{
 	min-height: auto;
 }
-
 
 
 @media (min-width: 600px ) and (max-width : 1788px){

@@ -96,14 +96,14 @@ export default function MainNavbar() {
         <div className="row no-padding no-margin width-100 center-all" >
 
           {/* Point no 1 covered */}
-          <div className="col-sm-2 no-padding no-margin"> 
+          <div className="col-sm-2 col-2 no-padding no-margin"> 
             <img src={SidebarIcon}  aria-label="open drawer"
               onClick={handleDrawerOpen}
               edge="start"
               className={clsx(classes.menuButton, open && classes.hide)} />
           </div>
           {/* Dropdown content */}
-          <div className="col-sm-10 no-padding no-margin">
+          <div className="col-sm-10 col-10 no-padding no-margin">
             <TopRightNavBar />
           </div>
         </div>
