@@ -11,7 +11,7 @@
     "axios": "^0.19.0",
     "bvalid": "^1.0.1",
     "draft-convert": "^2.1.8",
-    "draft-js": "^0.10.5",
+    "draft-js": "^0.10.4",
     "emotion-theming": "^10.0.27",
     "express": "^4.17.1",
     "medium-draft": "^0.5.18",
@@ -29,7 +29,7 @@
     "universal-cookie": "^4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=7000 react-scripts start",
     "local": "PORT=7000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
